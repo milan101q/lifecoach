@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clarity & Courage Life Coaching</title>
   <meta name="description" content="A professional and inspiring website for a life coach, featuring service details, testimonials, and an AI-powered daily inspiration generator. The site is designed to attract new clients and provide a clear path to booking a consultation.">
+  <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='%230d9488' stroke-width='8'/%3e%3cpath d='M50 15 L65 50 L50 85 L35 50 Z' fill='%230d9488'/%3e%3ccircle cx='50' cy='50' r='5' fill='%23ffffff'/%3e%3c/svg%3e">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -596,7 +597,7 @@
     const DailyInspiration = () => {
         const [inspiration, setInspiration] = React.useState(null);
         const [isLoading, setIsLoading] = React.useState(true);
-        const [isFading, setIsFading] = React.useState(false);
+        const [isFading, setIsFading] = React.useState(true);
         const [canShare, setCanShare] = React.useState(false);
         const [isCopied, setIsCopied] = React.useState(false);
 
