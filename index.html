@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thrive by Hiba | Life Coaching</title>
-  <meta name="description" content="Unlock your potential with Thrive by Hiba. Hiba offers life coaching services including service details, testimonials, and an AI-powered daily inspiration generator. This site is designed to attract new clients and provide a clear path to booking a consultation.">
+  <title>Soul Architect | Life Coaching by Hiba</title>
+  <meta name="description" content="Unlock your potential with Soul Architect. Hiba offers life coaching services including service details, testimonials, and an AI-powered daily inspiration generator. This site is designed to attract new clients and provide a clear path to booking a consultation.">
   <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='%230d9488'/%3e%3cpath d='M50 75 V 50 M50 50 C 50 50, 30 55, 40 30 M50 50 C 50 50, 70 55, 60 30' stroke='%23ffffff' stroke-width='8' fill='none' stroke-linecap='round'/%3e%3c/svg%3e">
   
   <!-- Tailwind CSS -->
@@ -13,7 +13,7 @@
   <!-- Google Fonts for a more elegant feel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- React & Babel for in-browser JSX transpilation -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -27,6 +27,9 @@
     }
     .font-serif {
       font-family: 'Lora', serif;
+    }
+    .font-display {
+      font-family: 'Cinzel', serif;
     }
 
     @keyframes fade-in-down {
@@ -258,40 +261,61 @@
         );
     };
 
-    const Logo = ({ className = '' }) => (
-      <svg
-        className={className}
-        viewBox="0 0 200 40"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-label="Thrive by Hiba logo"
-      >
-        <defs>
-          <style>
-            {`
-              .logo-thrive { font-family: 'Lora', serif; font-size: 28px; font-weight: 700; fill: #134e4a; /* teal-900 */ }
-              .logo-byhiba { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 400; fill: #1f2937; /* gray-800 */ }
-              .logo-v-leaf { fill: #0d9488; /* teal-600 */ transition: transform 0.3s ease-in-out; transform-origin: bottom center; }
-              svg:hover .logo-v-leaf { transform: scale(1.1); }
-            `}
-          </style>
-        </defs>
-        <text x="0" y="28" className="logo-thrive">
-          Thri
-        </text>
-        <g transform="translate(70, 5)">
-            <path
-                className="logo-v-leaf"
-                d="M-1,0 C4,12 4,12 9,22 L10,20 C5,12 5,12 1,0z M19,0 C14,12 14,12 9,22 L8,20 C13,12 13,12 17,0z"
-            />
-        </g>
-        <text x="88" y="28" className="logo-thrive">
-          e
-        </text>
-        <text x="108" y="28" className="logo-byhiba">
-          by Hiba
-        </text>
-      </svg>
-    );
+    const Logo = ({ className = '', variant = 'dark' }) => {
+        const textColor = variant === 'light' ? '#FFFFFF' : '#134e4a'; // white or teal-900
+        const markColor = variant === 'light' ? '#E0F2F1' : '#0d9488'; // teal-100 or teal-600
+
+        return (
+            <svg
+            className={className}
+            viewBox="0 0 310 40"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Soul Architect logo"
+            >
+            <defs>
+                <style>
+                {`
+                    .sa-logo-group:hover .sa-logo-sparkle { 
+                    transform: scale(1.25) rotate(15deg); 
+                    }
+                `}
+                </style>
+            </defs>
+            <g className="sa-logo-group">
+                {/* Geometric Mark: Archway with a soul/spark inside */}
+                <g transform="translate(20, 20)">
+                <path 
+                    d="M-15 0 A 15 15 0 0 1 15 0" 
+                    stroke={markColor} 
+                    strokeWidth="2" 
+                    fill="none" 
+                />
+                <path 
+                    className="sa-logo-sparkle"
+                    d="M0,-5 L1.5,-1.5 L5,0 L1.5,1.5 L0,5 L-1.5,1.5 L-5,0 L-1.5,-1.5 Z" 
+                    fill={markColor}
+                    style={{
+                    transition: 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    transformOrigin: 'center center'
+                    }}
+                />
+                </g>
+                
+                <text 
+                x="50" 
+                y="29" 
+                fontFamily="'Cinzel', serif"
+                fontSize="24"
+                fontWeight="700"
+                fill={textColor}
+                letterSpacing="2"
+                >
+                SOUL ARCHITECT
+                </text>
+            </g>
+            </svg>
+        );
+    };
 
     //==================================================
     // components/*.jsx
@@ -828,7 +852,7 @@
                      <p className="text-gray-600 mb-8">Fill out the form to schedule your free discovery call.</p>
                     <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit} className="space-y-8">
                         <input type="hidden" name="access_key" value="87774ba7-dcf7-411b-9e40-5e0a81ae5151" />
-                        <input type="hidden" name="subject" value="New Inquiry from Thrive by Hiba Website" />
+                        <input type="hidden" name="subject" value="New Inquiry from Soul Architect Website" />
                         
                         <FloatingLabelInput id="name" name="name" label="Full Name" value={formValues.name} onChange={handleInputChange} required disabled={status === 'loading'} icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} />
                         <FloatingLabelInput id="email" name="email" type="email" label="Email Address" value={formValues.email} onChange={handleInputChange} required disabled={status === 'loading'} icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>} />
@@ -883,7 +907,7 @@
             <div className="container mx-auto px-6 py-8">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                 <div className="text-center md:text-left mb-4 md:mb-0">
-                    <Logo className="h-10 fill-current text-white" />
+                    <Logo className="h-10" variant="light" />
                     <p className="text-gray-400 mt-2">Your journey to a better life starts here.</p>
                 </div>
                 <div className="flex space-x-6">
@@ -899,7 +923,7 @@
                 </div>
                 </div>
                 <div className="mt-8 border-t border-gray-700 pt-4 text-center text-gray-400 text-sm">
-                <p>&copy; {new Date().getFullYear()} Thrive by Hiba. All Rights Reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Soul Architect. All Rights Reserved.</p>
                 </div>
             </div>
             </footer>
