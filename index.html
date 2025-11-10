@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thrive by Hibba | Life Coaching</title>
-  <meta name="description" content="Unlock your potential with Thrive by Hibba. Hibba offers life coaching services including service details, testimonials, and an AI-powered daily inspiration generator. This site is designed to attract new clients and provide a clear path to booking a consultation.">
+  <title>Thrive by Hiba | Life Coaching</title>
+  <meta name="description" content="Unlock your potential with Thrive by Hiba. Hiba offers life coaching services including service details, testimonials, and an AI-powered daily inspiration generator. This site is designed to attract new clients and provide a clear path to booking a consultation.">
   <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='%230d9488'/%3e%3cpath d='M50 75 V 50 M50 50 C 50 50, 30 55, 40 30 M50 50 C 50 50, 70 55, 60 30' stroke='%23ffffff' stroke-width='8' fill='none' stroke-linecap='round'/%3e%3c/svg%3e">
   
   <!-- Tailwind CSS -->
@@ -322,7 +322,7 @@
             <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
             <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#" className="text-2xl font-bold text-teal-800 font-serif" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-                Thrive by Hibba
+                Thrive by Hiba
                 </a>
                 <nav className="hidden md:flex items-center space-x-8">
                 {navLinks.map((link) => (
@@ -441,7 +441,7 @@
                 </div>
                 <div className="text-left">
                     <h2 className="text-4xl font-bold font-serif text-teal-800 mb-6">
-                    Meet Your Coach, Hibba
+                    Meet Your Coach, Hiba
                     </h2>
                     <p className="text-lg text-gray-600 mb-4 leading-relaxed">
                     I wasn’t always living the life I wanted — but I refused to let my circumstances define me.
@@ -544,9 +544,9 @@
     
     const Testimonials = () => {
         const testimonialsData = [
-            { quote: "Working with Hibba was life-changing. I went from feeling lost and overwhelmed to having a clear vision for my future and the confidence to pursue it. I can't recommend her enough!", name: 'Sarah L.', title: 'Marketing Director', imageUrl: 'https://picsum.photos/id/237/100/100' },
-            { quote: "I was skeptical about life coaching, but Hibba's practical and empathetic approach completely won me over. I've achieved more in the last three months than I did in the previous three years.", name: 'Michael B.', title: 'Software Engineer', imageUrl: 'https://picsum.photos/id/238/100/100' },
-            { quote: 'The group coaching program was incredible. It provided a safe and supportive space to grow alongside others. Hibba is a masterful facilitator who brings out the best in everyone.', name: 'Emily C.', title: 'Entrepreneur', imageUrl: 'https://picsum.photos/id/239/100/100' },
+            { quote: "Working with Hiba was life-changing. I went from feeling lost and overwhelmed to having a clear vision for my future and the confidence to pursue it. I can't recommend her enough!", name: 'Sarah L.', title: 'Marketing Director', imageUrl: 'https://picsum.photos/id/237/100/100' },
+            { quote: "I was skeptical about life coaching, but Hiba's practical and empathetic approach completely won me over. I've achieved more in the last three months than I did in the previous three years.", name: 'Michael B.', title: 'Software Engineer', imageUrl: 'https://picsum.photos/id/238/100/100' },
+            { quote: 'The group coaching program was incredible. It provided a safe and supportive space to grow alongside others. Hiba is a masterful facilitator who brings out the best in everyone.', name: 'Emily C.', title: 'Entrepreneur', imageUrl: 'https://picsum.photos/id/239/100/100' },
         ];
         const [currentIndex, setCurrentIndex] = React.useState(0);
         React.useEffect(() => {
@@ -797,7 +797,7 @@
                      <p className="text-gray-600 mb-8">Fill out the form to schedule your free discovery call.</p>
                     <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit} className="space-y-8">
                         <input type="hidden" name="access_key" value="87774ba7-dcf7-411b-9e40-5e0a81ae5151" />
-                        <input type="hidden" name="subject" value="New Inquiry from Thrive by Hibba Website" />
+                        <input type="hidden" name="subject" value="New Inquiry from Thrive by Hiba Website" />
                         
                         <FloatingLabelInput id="name" name="name" label="Full Name" value={formValues.name} onChange={handleInputChange} required disabled={status === 'loading'} icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} />
                         <FloatingLabelInput id="email" name="email" type="email" label="Email Address" value={formValues.email} onChange={handleInputChange} required disabled={status === 'loading'} icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>} />
@@ -852,7 +852,7 @@
             <div className="container mx-auto px-6 py-8">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                 <div className="text-center md:text-left mb-4 md:mb-0">
-                    <h3 className="text-xl font-bold font-serif">Thrive by Hibba</h3>
+                    <h3 className="text-xl font-bold font-serif">Thrive by Hiba</h3>
                     <p className="text-gray-400">Your journey to a better life starts here.</p>
                 </div>
                 <div className="flex space-x-6">
@@ -868,7 +868,7 @@
                 </div>
                 </div>
                 <div className="mt-8 border-t border-gray-700 pt-4 text-center text-gray-400 text-sm">
-                <p>&copy; {new Date().getFullYear()} Thrive by Hibba. All Rights Reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Thrive by Hiba. All Rights Reserved.</p>
                 </div>
             </div>
             </footer>
