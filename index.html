@@ -515,9 +515,11 @@
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div className="flex flex-col items-center md:items-start">
                     <img 
-                    src="https://images.unsplash.com/photo-1516655855035-d5215bcb5604?q=80&w=800&auto=format&fit=crop" 
-                    alt="A woman jumping triumphantly with her back to the camera, overlooking a stunning, expansive landscape that symbolizes a bright and limitless future." 
+                    src="https://raw.githubusercontent.com/milan101q/lifecoach/refs/heads/main/wq1.jpeg" 
+                    alt="A woman with her arms raised triumphantly, overlooking a stunning, expansive landscape that symbolizes a bright and limitless future." 
                     className="rounded-lg shadow-xl object-cover w-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                    loading="lazy"
+                    decoding="async"
                     />
                 </div>
                 <div className="text-left">
@@ -822,6 +824,32 @@
     const Contact = () => {
         const [status, setStatus] = React.useState('idle');
         const [formValues, setFormValues] = React.useState({ name: '', email: '', phone: '', message: '' });
+        
+        const imageContainerRef = React.useRef(null);
+        const [isImageVisible, setIsImageVisible] = React.useState(false);
+
+        React.useEffect(() => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIsImageVisible(true);
+                        observer.unobserve(entry.target);
+                    }
+                },
+                { rootMargin: '100px' }
+            );
+
+            const currentRef = imageContainerRef.current;
+            if (currentRef) {
+                observer.observe(currentRef);
+            }
+
+            return () => {
+                if (currentRef) {
+                    observer.unobserve(currentRef);
+                }
+            };
+        }, []);
 
         const handleInputChange = (e) => {
             const { name, value } = e.target;
@@ -901,8 +929,14 @@
                         <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Your first step towards a more empowered life is just a message away. <br/>Book your complimentary discovery call today.</p>
                     </div>
                     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden grid md:grid-cols-2">
-                        <div className="relative hidden md:block">
-                            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?q=80&w=800&auto=format&fit=crop')" }}></div>
+                        <div ref={imageContainerRef} className="relative hidden md:block bg-stone-200">
+                            <div 
+                                className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000" 
+                                style={{ 
+                                    backgroundImage: isImageVisible ? "url('https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?q=80&w=800&auto=format&fit=crop')" : 'none',
+                                    opacity: isImageVisible ? 1 : 0
+                                }}>
+                            </div>
                             <div className="absolute inset-0 bg-teal-800/60"></div>
                             <div className="relative z-10 flex flex-col justify-end h-full p-12 text-white">
                                 <h3 className="text-3xl font-bold font-serif mb-4">"The journey of a thousand miles begins with a single step."</h3>
